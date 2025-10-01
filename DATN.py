@@ -455,7 +455,8 @@ elif main_menu == "Dự báo với công ty có sẵn":
         # --- Xử lý ngoại lai ---
         elif ana_option == "Xử lý giá trị ngoại lai (Tùy chọn)":
             if "df_preprocessed" in st.session_state:
-                df = st.session_state.df_preprocessed.copy()
+                #df = st.session_state.df_preprocessed.copy()
+                df = st.session_state.get("df_forecast_ready", st.session_state.df_preprocessed).copy()
 
                 st.subheader("📦 Xử lý ngoại lai")
                 col = st.selectbox("Chọn biến cần xử lý ngoại lai:", df.columns)
